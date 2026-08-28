@@ -1,4 +1,4 @@
-﻿namespace TwitterClone.Domain.Entitities
+﻿namespace TwitterClone.Domain.Entities
 {
     public class User
     {

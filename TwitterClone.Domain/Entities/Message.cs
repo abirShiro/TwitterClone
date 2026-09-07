@@ -1,22 +1,17 @@
 namespace TwitterClone.Domain.Entities
 {
-    public class Message
+    public class Message : BaseEntity
     {
-        private Guid _id;
         private Guid _senderId;
         private Guid _recieverId;
-        private DateTime _sentAt;
         private string _content;
 
-        public Message()
+        public Message(Guid senderId, Guid recieverId, string content): base(Guid.NewGuid())
         {
-            _id = Guid.NewGuid();
+            _senderId = senderId;
+            _recieverId = recieverId;
+            _content = content;
         } 
-
-        public Guid Id
-        {
-            get { return _id; }
-        }
 
         public Guid SenderId
         {
@@ -26,11 +21,6 @@ namespace TwitterClone.Domain.Entities
         public Guid RecieverId
         {
             get { return _recieverId; }
-        }
-
-        public DateTime SentAt
-        {
-            get { return _sentAt; }
         }
 
         public string Content

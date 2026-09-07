@@ -1,21 +1,16 @@
 namespace TwitterClone.Domain.Entities
 {
-    public class Tweet
+    public class Tweet : BaseEntity
     {
         public const int MaxLength = 280;
-        private Guid _id;
         private Guid _authorId;
         private string _content;
 
-        public Tweet()
+        public Tweet(string content) : base(Guid.NewGuid())
         {
-            _id = Guid.NewGuid();
+            _content = content;
         }
 
-        public Guid Id
-        {
-            get { return _id; }
-        }
 
         public Guid AuthorId
         {

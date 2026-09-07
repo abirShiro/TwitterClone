@@ -1,21 +1,16 @@
 namespace TwitterClone.Domain.Entities
 {
-    public class Notification
+    public class Notification : BaseEntity
     {
-        private Guid _id;
         private Guid _userId;
-        private string _content;
-        private DateTime _createdAt;
+        private string _type;
+
+        private string _message;
         private bool _isRead;
 
-        public Notification()
+        public Notification(string notificationType): base(Guid.NewGuid())
         {
-            _id = Guid.NewGuid();
-        }
-
-        public Guid Id
-        {
-            get { return _id; }
+            _type = notificationType;
         }
 
         public Guid UserId
@@ -23,23 +18,17 @@ namespace TwitterClone.Domain.Entities
             get { return _userId; }
         }
 
-        public string Content
+
+        public string Type
         {
-            get { return _content; }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("Content cannot be empty");
-                }
-                _content = value; 
-            }
+            get { return _type;}
+            set { _type = value;}
         }
 
-        public DateTime CreatedAt
+        protected string Message
         {
-            get { return _createdAt; }
-            set { _createdAt = value; }
+            get { return _message;}
+            set { _message = value; }
         }
 
         public bool IsRead

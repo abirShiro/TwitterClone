@@ -13,7 +13,10 @@ namespace TwitterClone.Domain.Entities
         {
             Message = message;
         }
-
+        public override string GetMessage()
+        {
+            return $"liked by user id {LikedByUserId}";
+        }
         
     }
 }
